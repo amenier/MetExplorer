@@ -1,0 +1,57 @@
+<!-- 
+ Menier CSC 6033 Week 5
+ Tested in Firefox, Edge, and Chrome
+-->
+
+<!DOCTYPE html>
+<html lang="eng" id="page">
+    <head>
+        <title id="title">
+            Met Museum Explorer
+        </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+         <script src="loadContent.js"></script>
+    </head>
+    <body>
+        <h1>
+            Met Museum Explorer
+        </h1>
+        <p>
+            This page highlights some paintings from the Hudson River School and similar works by other artists.
+            Known for its stunning landscapes and use of shadow and light, the Hudson River School 
+            features prominently in the collection of the Metropolitan Museum of Art in New York City.
+        </p>
+        <!-- <div id="buttonDiv">
+            <button onclick="loadContent()">Load New Image</button>
+        </div> -->
+
+        <div id="gallery">
+           <a id="imageLink" href="https://images.metmuseum.org/CRDImages/ad/original/DT2639.jpg" target="_blank"><img id="thumbnail" width="100%" height="auto" src="https://images.metmuseum.org/CRDImages/ad/web-large/DT2639.jpg"></a>
+        </div>
+        <div id="plaque">
+            <h2 id="plaqueArtName">View on the Catskill—Early Autumn</h2>
+            <h3 id="plaqueOtherInfo">Thomas Cole, 1836–37, Oil on canvas</h3>
+            </div>
+        <div id="buttons">
+            <!-- <a id="artistLink" href="http://en.wikipedia.org/wiki/George_Inness" target="_blank"><button id="artistButton">Read about this artist on Wikipedia</button></a> -->
+            <a id="artInfo" href="https://www.metmuseum.org/art/collection/search/10501" target="_blank"><button>Learn More</button></a>
+            <button onclick="loadContent()">Load New Image</button>
+            <!-- <a id="artLink" href="http://en.wikipedia.org/wiki/Spring_Blossoms,_Montclair,_New_Jersey" target="_blank"></a><button id="artButton">Read about this work on Wikipedia</button></a> -->
+        </div>
+        
+        <!-- These frames created a security error when I tried to load them via the function with the API calls
+        <div id="artist">
+            <iframe id="artistInfo" width="100%" height="100%" src="http://en.wikipedia.org/wiki/George_Inness"></iframe>
+        </div>
+
+        <div id="artwork">
+            <iframe id="artInfo" width="100%" height="100%" src="http://en.wikipedia.org/wiki/Spring_Blossoms,_Montclair,_New_Jersey"></iframe>
+        </div>
+        -->
+
+    </body>
+
+
+
+</html>

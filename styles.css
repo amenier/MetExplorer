@@ -1,0 +1,146 @@
+body {
+    background-color: cadetblue;
+}
+
+h1 {
+    background-color: beige;
+    width: 40%;
+    float: none;
+    display: block;
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 10px double black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+#plaque {
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 30%;
+    background-color: darkgoldenrod;
+    border: 10px double black;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    max-width: 90%;
+    padding-top: 10px;
+}
+
+h3 {
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 90%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#buttons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 50px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#buttonDiv {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 5px;
+}
+
+button {
+    /*margin: auto;*/
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px;
+    background-color: silver;
+    border: 5px double black;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#gallery {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+    
+}
+
+#page {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+img {
+    border: 20px ridge goldenrod;
+    padding: 20px;
+    background-color: beige;
+    width: auto;
+    height: auto;
+}
+
+p {
+    text-align: center;
+    width: 37%;
+    padding: 5px;
+    height: auto;
+    margin: auto;
+    background-color: rgb(245, 245, 220);
+    opacity: 0.4;
+    color: black;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+
+
+#artist {
+    float:left;
+    background-color: green;
+    width: 45%;
+    height: 400px;
+    margin-right: 10px;
+    margin-left: 3%;
+    margin-bottom: 50px;
+}
+
+#artwork {
+    float: right;
+    background-color: orange;
+    width: 45%;
+    height: 400px;
+    margin-left: 10px;
+    margin-right: 3%;
+    margin-bottom: 50px;
+}
