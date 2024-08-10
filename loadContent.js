@@ -1,5 +1,6 @@
 function loadContent() {
-    fetch("https://collectionapi.metmuseum.org/public/collection/v1/search?q='hudson+river+school'&hasImages=true&medium=Paintings&isHighlight=true")
+    //fetch("https://collectionapi.metmuseum.org/public/collection/v1/search?q='hudson+river+school'&hasImages=true&medium=Paintings&isHighlight=true")
+    fetch("https://collectionapi.metmuseum.org/public/collection/v1/search?q=%27%27&hasImages=true")
     .then(function(response) {
         return response.json();
     })
@@ -14,69 +15,54 @@ function loadContent() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data['primaryImage'])
-            console.log(data['primaryImageSmall'])
-            if (data['primaryImageSmall'] == "") {
-                console.log("Primary Image Not Found.")
-                // document.getElementById("thumbnail").innerHTML="No picture available.";
-                document.getElementById("thumbnail").src="noimage.png";
+            if (data['primaryImageSmall'] == "" || data['primaryImageSmall'] == null) {
+                console.log("No image link included");
+                loadContent();            
             } else {
-                document.getElementById("thumbnail").src=data['primaryImageSmall'];
-            }
-            console.log(data['title']);
-            document.getElementById("plaqueArtName").innerHTML=data['title'];
-            console.log(data['constituents'][0]['name']);
-            console.log(data['objectDate']);
-            console.log(data['medium']);
-            document.getElementById("plaqueOtherInfo").innerHTML=`${data['constituents'][0]['name']}, ${data['objectDate']}, ${data['medium']}`;
-            document.getElementById("imageLink").href=`${data['primaryImage']}`;
-            document.getElementById("artInfo").href=`${data['objectURL']}`;
-
-            // I tried to get this to link to the wikipedia page, but I kept getting a security error
-            // api call from https://stackoverflow.com/questions/7185288/how-can-i-get-wikipedia-content-using-wikipedias-api
-            // fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${data['constituents'][0]['name']}&limit=1&format=json`)
-            //     .then(function(response) {
-            //         return response.json();
-            //     })
-            //     .then(function(data) {
-            //         if (data[3] == "") {
-            //             document.getElementById("artistButton").value="Artist Wikipedia page not found";
-            //             console.log("data not found")
-            //             onsole.log(data[3])
-            //         } else {
-            //             document.getElementById("artistLink").href=data[3];
-            //             document.getElementById("artistButton").value="Read about this artist on Wikipedia";
-            //             console.log(data[3])
-            //         }
-            //     })
-            //     .catch(function(error) {
-            //     console.log(error);
-            //     });
                 
-            //     fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${data['title']}&limit=1&format=json`)
-            //     .then(function(response) {
-            //         return response.json();
-            //     })
-            //     .then(function(data) {
-            //         if (data[3] == "") {
-            //             document.getElementById("artButton").value="Art Wikipedia age not found";
-            //             console.log("page not found")
-            //             onsole.log(data[3])
-            //         } else {
-            //             document.getElementById("artLink").href=data[3];
-            //             document.getElementById("artButton").value="Read about this work on Wikipedia";
-            //             console.log(data[3])
-            //         }
-            //     })
-            //     .catch(function(error) {
-            //     console.log(error);
-            //     });
+                var smallImage = data['primaryImageSmall'];           console.log(smallImage);
+                var bigImage = data['primaryImage'];                  console.log(bigImage);
+                var title = data['title'];                            console.log(title);
+                var artistName;
+                data.constituents == null ? artistName = "" : artistName = data['constituents'][0]['name'];     
+                                                                        console.log(artistName);
+                var medium = data['medium'];                          console.log(medium);
+                var objectDate = data['objectDate'];                  console.log(objectDate);
+                var objectURL = data['objectURL'];                    console.log(objectURL);
 
+                if (smallImage == "") {
+                    console.log("Primary Image Not Found.")
+                    document.getElementById("thumbnail").src="noimage.png";
+                } else {
+                    document.getElementById("thumbnail").src=smallImage;
+                };
 
-            
+                if (title == "") {
+                    document.getElementById("plaqueArtName").innerHTML="Unknown Title";
+                } else {
+                    document.getElementById("plaqueArtName").innerHTML=title;
+                };
+
+                if (objectDate == "") {
+                    objectDate = "Unknown date";
+                };
+
+                if (artistName == "") {
+                    artistName = "Unknown Artist"
+                };
+
+                if (medium == "") {
+                    medium = "Unknown Medium"
+                };
+
+                document.getElementById("plaqueOtherInfo").innerHTML=`${artistName}, ${objectDate}, ${medium}`
+                document.getElementById("imageLink").href=bigImage;
+                document.getElementById("artInfo").href=objectURL;
+            }    
         })
         .catch(function(error) {
         console.log(error);
+        loadContent();
         });
     })
     
@@ -84,5 +70,4 @@ function loadContent() {
         console.log(error);
     });
 
-    console.log(objectCache)
 }
